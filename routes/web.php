@@ -4,6 +4,7 @@ use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
@@ -44,3 +45,6 @@ Route::get('/component',function(){
 // customer table with  role table -----> relation in customer_role table
 Route::resource('customer', CustomerController::class);
 Route::resource('role', RoleController::class);
+
+//has one through relations member table | company table | phone_numbers
+Route::resource('member',MemberController::class);
