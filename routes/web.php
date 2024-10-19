@@ -48,3 +48,4 @@ Route::resource('role', RoleController::class);
 
 //has one through relations member table | company table | phone_numbers
 Route::resource('member',MemberController::class);
+// command addded to check the ssh key
