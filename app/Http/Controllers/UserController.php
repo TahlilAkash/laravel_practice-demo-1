@@ -10,7 +10,7 @@ use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
-    public function create()
+    public function registration()
     {
         return view("registration.create");
     }
@@ -41,9 +41,10 @@ class UserController extends Controller
             return view("dashboard.page",compact("user"));
 
         }
-        else{
-            return redirect()->back()->with("error","please register");
-        }
+        // Redirect back with input and errors
+        return redirect()->back()
+        ->withInput($request->only('email')) // Retain only the email
+        ->withErrors('The provided credentials do not match our records.',);
     }
     public function logout(Request $request){
         Auth::logout();

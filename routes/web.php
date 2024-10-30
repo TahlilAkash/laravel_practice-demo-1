@@ -53,7 +53,8 @@ Route::resource('member',MemberController::class);
 
 
 // Authentication
-Route::resource('registration',UserController::class);
-Route::get('login', [UserController::class, 'login'])->name('user.login');
+Route::get('registration',[UserController::class, 'registration']);
+Route::post('registration/store',[UserController::class, 'store'])->name('registration.store');
+Route::get('login/form', [UserController::class, 'login'])->name('user.login');
 Route::post('login', [UserController::class, 'loginPost'])->name('login.submit');
 Route::get('logout', [UserController::class, 'logOut'])->name('logout.user');
