@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,4 +49,11 @@ Route::resource('role', RoleController::class);
 
 //has one through relations member table | company table | phone_numbers
 Route::resource('member',MemberController::class);
-// command addded to check the ssh key
+// comment addded to check the ssh key
+
+
+// Authentication
+Route::resource('registration',UserController::class);
+Route::get('login', [UserController::class, 'login'])->name('user.login');
+Route::post('login', [UserController::class, 'loginPost'])->name('login.submit');
+Route::get('logout', [UserController::class, 'logOut'])->name('logout.user');
